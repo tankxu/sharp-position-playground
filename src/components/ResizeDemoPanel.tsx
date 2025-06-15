@@ -35,7 +35,7 @@ const ResizeDemoPanel: React.FC<ResizeDemoPanelProps> = ({
           />
         </div>
         {/* Resized Images */}
-        {["center", "entropy", "attention"].map((pos) => (
+        {(["center", "entropy", "attention"] as Array<"center" | "entropy" | "attention">).map((pos) => (
           <div className="flex items-start gap-4 mb-10" key={pos}>
             <div className="w-[55px] flex-shrink-0 pt-[2px] text-[13px] font-normal text-gray-600 leading-tight">
               {POSITION_LABELS[pos]}
@@ -53,3 +53,4 @@ const ResizeDemoPanel: React.FC<ResizeDemoPanelProps> = ({
 };
 
 export default ResizeDemoPanel;
+
