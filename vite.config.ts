@@ -1,3 +1,4 @@
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -17,10 +18,9 @@ export default defineConfig(({ mode }) => ({
     // dev 环境自动运行 Express 后端
     mode === 'development' &&
     run({
-      // 监控 server 目录和 server/index.js 变动自动重启
+      // 只保留支持的配置项（watch已不被支持）
       name: "run-express-server",
       run: ["node server/index.js"],
-      watch: ["server/**/*.js"],
     }),
   ].filter(Boolean),
   resolve: {
