@@ -21,7 +21,8 @@ const ResizeDemoPanel: React.FC<ResizeDemoPanelProps> = ({
   loading,
 }) => {
   return (
-    <div className="bg-[#f6f8fa] min-h-full flex-1 h-full px-0 sm:px-8 py-10 overflow-y-auto rounded-r-xl">
+    // 只保留 padding、overflow-y-auto、背景色
+    <div className="bg-[#f6f8fa] px-0 sm:px-8 py-10 overflow-y-auto rounded-r-xl">
       <div className="max-w-[340px] mx-auto">
         {/* Image origin */}
         <div className="flex items-start gap-4 mb-10">
