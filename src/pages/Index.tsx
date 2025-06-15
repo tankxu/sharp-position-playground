@@ -3,11 +3,6 @@ import React, { useState, useCallback } from "react";
 import ImageUploadPanel from "../components/ImageUploadPanel";
 import ResizeDemoPanel from "../components/ResizeDemoPanel";
 
-/**
- * You need to run the backend at http://localhost:3001
- * See server/index.js for Node.js backend.
- */
-
 const API_BASE = "http://localhost:3001/api";
 
 const Index = () => {
@@ -28,28 +23,12 @@ const Index = () => {
     async (file: File, previewUrl: string) => {
       setImageFile(file);
       setSourcePreviewUrl(previewUrl);
-      setOriginProcessedUrl(null);
+      setOriginProcessedUrl(previewUrl); // 前端直接用原始URL，不再请求 /api/origin
       setProcessed({ center: null, entropy: null, attention: null });
       setLoading(true);
 
       try {
-        // 1. Send to /api/origin to get scaled origin display
-        const formDataOrigin = new FormData();
-        formDataOrigin.append("file", file);
-
-        const originRes = await fetch(`${API_BASE}/origin`, {
-          method: "POST",
-          body: formDataOrigin,
-        });
-
-        if (originRes.ok) {
-          // use blob
-          const blob = await originRes.blob();
-          setOriginProcessedUrl(URL.createObjectURL(blob));
-        } else {
-          setOriginProcessedUrl(previewUrl); // fallback to true preview
-        }
-
+        // 现在不用请求 /api/origin 了，直接使用 previewUrl
         // 2. For three positions
         const resizes = ["center", "entropy", "attention"];
         const results: { [pos: string]: string | null } = {};
