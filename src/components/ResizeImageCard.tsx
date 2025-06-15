@@ -1,5 +1,7 @@
+
 import React from "react";
 import { cn } from "@/lib/utils";
+import { Skeleton } from "./ui/skeleton";
 
 const SHADOW = "shadow-md";
 const BORDER =
@@ -27,10 +29,15 @@ const ResizeImageCard: React.FC<ResizeImageCardProps> = ({
       minHeight: 260,
     }}
   >
+    {/* 如果是 origin 卡片，loading 时不显示 skeleton，只显示文字；其余卡片 loading 时用 skeleton 占位 */}
     {!url ? (
-      <div className="text-center text-sm text-muted-foreground px-2">
-        {loading ? "Processing..." : type === "origin" ? "No image yet" : "—"}
-      </div>
+      loading && type !== "origin" ? (
+        <Skeleton className="w-full h-full" />
+      ) : (
+        <div className="text-center text-sm text-muted-foreground px-2">
+          {loading ? "Processing..." : type === "origin" ? "No image yet" : "—"}
+        </div>
+      )
     ) : type === "origin" ? (
       <img
         src={url}
@@ -60,3 +67,4 @@ const ResizeImageCard: React.FC<ResizeImageCardProps> = ({
 );
 
 export default ResizeImageCard;
+
