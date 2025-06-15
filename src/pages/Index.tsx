@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from "react";
 import ImageUploadPanel from "../components/ImageUploadPanel";
 import ResizeDemoPanel from "../components/ResizeDemoPanel";
@@ -59,23 +58,21 @@ const Index = () => {
   );
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center bg-background">
-      <div className="flex w-full max-w-5xl mx-auto h-[80vh] rounded-xl overflow-hidden shadow-lg bg-white/80">
-        {/* Left: Upload */}
-        <div className="w-1/2 h-full flex items-center justify-center bg-white">
-          <div className="w-full max-w-md h-full flex items-center">
-            <ImageUploadPanel onImageSelected={handleImageSelected} loading={loading} />
-          </div>
+    <div className="w-screen h-screen bg-background flex">
+      {/* 左栏，内容靠右 */}
+      <div className="w-1/2 flex items-center justify-end">
+        <div className="max-w-md w-full pr-8">
+          <ImageUploadPanel onImageSelected={handleImageSelected} loading={loading} />
         </div>
-        {/* Right: Result */}
-        <div className="w-1/2 h-full flex items-center justify-center bg-[#f6f8fa]">
-          <div className="w-full max-w-md h-full flex items-center">
-            <ResizeDemoPanel
-              sourcePreviewUrl={originProcessedUrl}
-              processedImages={processed}
-              loading={loading}
-            />
-          </div>
+      </div>
+      {/* 右栏，内容靠左 */}
+      <div className="w-1/2 flex items-center justify-start">
+        <div className="max-w-md w-full pl-8">
+          <ResizeDemoPanel
+            sourcePreviewUrl={originProcessedUrl}
+            processedImages={processed}
+            loading={loading}
+          />
         </div>
       </div>
     </div>
