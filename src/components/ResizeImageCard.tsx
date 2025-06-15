@@ -1,4 +1,3 @@
-
 import React from "react";
 import { cn } from "@/lib/utils";
 
@@ -19,7 +18,7 @@ const ResizeImageCard: React.FC<ResizeImageCardProps> = ({
 }) => (
   <div
     className={cn(
-      "w-[260px] h-[260px] bg-white rounded-lg overflow-hidden flex items-center justify-center relative group",
+      "w-[260px] h-[260px] rounded-lg overflow-hidden flex items-center justify-center relative group",
       BORDER,
       SHADOW
     )}
