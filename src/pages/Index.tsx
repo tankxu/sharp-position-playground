@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback } from "react";
 import ImageUploadPanel from "../components/ImageUploadPanel";
 import ResizeDemoPanel from "../components/ResizeDemoPanel";
@@ -59,15 +60,15 @@ const Index = () => {
 
   return (
     <div className="w-screen h-screen bg-background flex">
-      {/* 左栏，内容靠右 */}
-      <div className="w-1/2 flex items-center justify-end">
-        <div className="max-w-md w-full pr-8">
+      {/* 左栏，内容靠右，顶部排列 */}
+      <div className="w-1/2 flex flex-col justify-start items-end">
+        <div className="max-w-md w-full pr-8 pt-10">
           <ImageUploadPanel onImageSelected={handleImageSelected} loading={loading} />
         </div>
       </div>
-      {/* 右栏，内容靠左 */}
-      <div className="w-1/2 flex items-center justify-start">
-        <div className="max-w-md w-full pl-8">
+      {/* 右栏，背景色填满，内容靠左，顶部排列 */}
+      <div className="w-1/2 bg-[#f6f8fa] flex flex-col justify-start items-start">
+        <div className="max-w-md w-full pl-8 pt-10">
           <ResizeDemoPanel
             sourcePreviewUrl={originProcessedUrl}
             processedImages={processed}
@@ -80,3 +81,4 @@ const Index = () => {
 };
 
 export default Index;
+
