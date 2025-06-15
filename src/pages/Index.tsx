@@ -66,8 +66,8 @@ const Index = () => {
           <ImageUploadPanel onImageSelected={handleImageSelected} loading={loading} />
         </div>
       </div>
-      {/* 右栏，背景色填满，内容靠左，顶部排列，高度锁定 */}
-      <div className="w-1/2 h-screen bg-[#f6f8fa] flex flex-col justify-start items-start">
+      {/* 右栏，背景色填满，内容靠左，顶部排列，高度锁定，支持滚动 */}
+      <div className="w-1/2 h-screen bg-[#f6f8fa] flex flex-col justify-start items-start overflow-y-scroll">
         <div className="max-w-md w-full pl-8 pt-10">
           <ResizeDemoPanel
             sourcePreviewUrl={originProcessedUrl}
