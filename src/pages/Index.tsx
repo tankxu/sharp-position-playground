@@ -59,21 +59,24 @@ const Index = () => {
   );
 
   return (
-    <div className="w-screen h-screen bg-background flex overflow-hidden">
-      {/* Left: Upload */}
-      <div
-        className="w-[380px] min-w-[320px] max-w-[440px] h-full overflow-y-auto"
-        style={{ boxShadow: "2px 0 16px 0 rgba(48,51,77,0.08)" }}
-      >
-        <ImageUploadPanel onImageSelected={handleImageSelected} loading={loading} />
-      </div>
-      {/* Right: Result */}
-      <div className="flex-1 min-w-0 h-full overflow-x-auto">
-        <ResizeDemoPanel
-          sourcePreviewUrl={originProcessedUrl}
-          processedImages={processed}
-          loading={loading}
-        />
+    <div className="w-full min-h-screen flex items-center justify-center bg-background">
+      <div className="flex w-full max-w-5xl mx-auto h-[80vh] rounded-xl overflow-hidden shadow-lg bg-white/80">
+        {/* Left: Upload */}
+        <div className="w-1/2 h-full flex items-center justify-center bg-white">
+          <div className="w-full max-w-md h-full flex items-center">
+            <ImageUploadPanel onImageSelected={handleImageSelected} loading={loading} />
+          </div>
+        </div>
+        {/* Right: Result */}
+        <div className="w-1/2 h-full flex items-center justify-center bg-[#f6f8fa]">
+          <div className="w-full max-w-md h-full flex items-center">
+            <ResizeDemoPanel
+              sourcePreviewUrl={originProcessedUrl}
+              processedImages={processed}
+              loading={loading}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
