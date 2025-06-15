@@ -23,7 +23,7 @@ const ResizeDemoPanel: React.FC<ResizeDemoPanelProps> = ({
   return (
     // 只保留 padding、overflow-y-auto、背景色
     <div className="bg-[#f6f8fa] px-0 sm:px-8 py-10 overflow-y-auto rounded-r-xl">
-      <div className="max-w-[340px] mx-auto">
+      <div className="max-w-lg mx-auto">
         {/* Image origin */}
         <div className="flex items-start gap-4 mb-10">
           <div className="w-[55px] flex-shrink-0 pt-[2px] text-[13px] font-bold text-gray-700 leading-tight">
